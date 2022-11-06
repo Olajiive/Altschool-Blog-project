@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="postcont">
+        <h2>Hey {{user.firstname }} here are the posts created by you so far</h2>
+        <div>
+            {% for post in posts[::-1] %}
+            <div class="post">
+                <div class="top">
+                    <h3>#{{ post.id }}</h3>
+                    <h3 style="margin-left: 22px;">{{ post.title }}</h3>
+                </div>
+                
+                
+                <div style="margin-left: 42px;">{{ post.content }}</div>
+                <div class="p_author" style="margin-left: 42px;">This post was created by {{ post.Author }}</div>
+                <small style="margin-left: 42px;">{{ post.Registered.strftime('%B %d, %Y')}}</small>
+                <div style="margin-left: 42px; margin-top: 7px; display: flex;">
+                    <button class="edit"><a href="{{url_for('edit_post', id=post.id)}}" style="color: black; text-decoration: none;">Edit</a></button>
+                    <form action="{{ url_for('delete_post',id=post.id)}}"  method="POST">
+                        <input id="delete" type="submit" value="delete" onclick="return confirm('Are you sure you want to delete this post')">
+                    </form>
+                </div>
+                
+            </div>
+                
+            {% endfor %}
+            
+        </div>
+        
+    </div>
+    
+
+    {% endblock %}
+   

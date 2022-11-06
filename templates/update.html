@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="" method="POST">
+        {% if post %}
+        <textarea cols="60" rows="3" name="title" placeholder="Enter your post title......" required>{{ post.title }}</textarea>
+        <textarea cols="60" rows="3" name="author" placeholder="Enter Author's name......" required>{{ post.Author }}</textarea>
+        <textarea cols="60" rows="7" name="content" placeholder="Enter your content......" required>{{ post.content }}</textarea>
+        <input type="submit" name="save" value="Update">
+        {% else %}
+        <textarea cols="60" rows="3" name="title" placeholder="Enter your post title......" required></textarea>
+        <textarea cols="60" rows="3" name="author" placeholder="Enter Author's name......" required></textarea>
+        <textarea cols="60" rows="7" name="content" placeholder="Enter your content......" required></textarea>
+        <input type="submit" name="save" value="Update">
+        {% endif %}
+    </form>
+    
+{% endblock %}

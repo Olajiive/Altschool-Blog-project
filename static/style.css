@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(6, 83, 6);
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.container {
+    margin: 180px auto 100px;
+    width: 60%;
+    background-color: white;
+    padding: 8px;
+}
+
+.postcont {
+    border: 1px solid red;
+    padding-bottom: 30px;
+
+}
+
+.postcont h1 {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.postcont h2 {
+    text-align: center;
+    margin: 30px 0;
+}
+.post .top {
+    display: flex;
+    
+}
+.postcont .post {
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+.post #delete{
+    cursor: pointer;
+}
+
+.post .btm {
+    margin-left: 40px;
+}
+
+.p_author {
+    font-size: 15px;
+}
+.post div {
+    margin-bottom: 7px;
+}
+
+.post .edit {
+    margin-right: 7px;
+}
+
+
+
+
+header nav li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+header nav li a:hover{
+    color: black;
+}
+
+header nav {
+    background-color: limegreen;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    
+}
+
+header nav li {
+    list-style: none;
+    margin-left: 60px;
+    
+}
+
+header .brand {
+    width: 100%;
+    padding-top: 15px ;
+    padding-bottom: 15px ;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.brand h1 {
+    color: white;
+    margin-left: 3px;
+    font-size: 47px ;
+}
+
+.brand {
+    color: black;
+}
+
+.brand .brand-logo {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 3px;
+    position: relative;
+}
+
+.brand .brand-logo .trg {
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    transform: translateX(50%);
+    width: 20px;
+    height: 20px;
+    transform: rotate(44deg);
+    background-color: limegreen;
+}
+
+.brand .brand-logo .logo {
+    position: absolute;
+    top: 33%;
+    left: 10%;
+    transform: translateX(50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: limegreen;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.footer {
+    background-color: black;
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+
+footer p {
+    color: white;
+}
+.form {
+    display:flex;
+    flex-direction: column;
+}
+.form input {
+    margin-bottom: 10px;
+}
+
+.form textarea {
+    margin-bottom: 20px;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+}
+.about .image img {
+
+    height: 350px;
+}
+.about h2 {
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+.about .olatunji {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.contact-cont {
+    width: 30%;
+    height: 400px;
+    background-color: white;
+    margin: 170px auto 0;
+}
+.contact-cont .cont1 {
+    border:1px solid red;
+    margin: 10px;
+    text-align: center;
+    padding-bottom: 22px;
+    margin-top: 50px;
+}
+.contact-font .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.contact-font .icon:nth-child(4) {
+    cursor: default;
+}
+.contact-cont h2 {
+    padding: 20px ;
+    text-align: center;
+}
+
+.contact-font  {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-font a {
+    margin-top: 25px;
+}
+
+.contact-font span {
+    margin-top: 22px;
+}
+
+.contact-font small {
+    margin-bottom: 5px;
+}

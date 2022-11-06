@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="postcont">
+        <h1>Explore Trending News across the World</h1>
+        <div >
+            
+            {% for post in posts %}
+            <div class="post">
+                <div class="top">
+                    <h2>#{{ post.id }}</h2>
+                    <h2 style="margin-left: 15px;">{{ post.title }}</h2>
+                </div>
+                
+                
+                <div style="margin-left: 42px;">{{ post.content }} </div>
+                <div class="p_author" style="margin-left: 42px;">This post was created by {{ post.Author }}</div>
+                <small style="margin-left: 42px;">{{ post.Registered.strftime('%B %d, %Y') }}</small>
+            
+                
+            
+            </div>
+            {% endfor %}
+        
+        </div>
+        
+       
+    </div>
+{% endblock %}

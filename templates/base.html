@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J!!VENAIJA</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <div class="brand-logo">
+                <div class="trg"></div>
+                <div class="logo">
+                    <h3>JN</h3>
+                </div>
+            </div>
+            <h1><span style="color: limegreen;">J!!VE</span><span>NAIJA</span></h1>
+        </div>
+        
+        <nav>
+            
+            {% if current_user.is_authenticated %}
+            <ul>
+                <li class="li-group"><a href="/">Home</a></li>
+                <li class="li-group"><a href="/about">About</a></li>
+                <li class="li-group"><a href="/contact">Contact</a></li>
+                <li class="li-group"><a href="/post">Create post</a></li>
+                <li class="li-group"><a href="{{ url_for('post') }}">My Posts</a></li>
+                <li class="li-group"><a href="/logout">Logout</a></li>
+                   
+            </ul>
+            
+            {% else %}
+            <ul>
+                <li class="li-group"><a href="/">Home</a></li>
+                <li class="li-group"><a href="/about">About</a></li>
+                <li class="li-group"><a href="/contact">Contact</a></li>
+                <li class="li-group"><a href="/signup">Signup</a></li>
+                <li class="li-group"><a href="/login" >Login</a></li>
+        
+            </ul>
+            {% endif %}
+            
+        </nav>
+        
+    </header>
+    <div class="container">
+        {% block content %}
+
+        {% endblock %}
+        
+    </div>
+    
+    <footer>
+        <p class="footer">
+            <span style="color: limegreen;">J!!VE</span><span>NAIJA</span> &copy; <script>
+                document.write(new Date().getFullYear())
+            </script>. &nbsp; All Rights Reserved
+        </p>
+    </footer>
+    </footer>
+</body>
+</html>
