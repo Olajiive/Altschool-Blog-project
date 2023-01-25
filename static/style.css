@@ -239,6 +239,11 @@ footer p {
     flex-direction: column;
 }
 
+.contact-font .icon a {
+    text-align: center;
+    margin-top: -3px;
+    
+}
 .contact-font a {
     margin-top: 25px;
 }
