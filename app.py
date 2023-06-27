@@ -4,26 +4,28 @@ from flask_login import LoginManager, login_required, login_user, logout_user, U
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import os
-
+from flask_migrate import Migrate
 
 
 app = Flask(__name__, template_folder="templates")
-
+Base_dir = os.path.dirname(os.path.realpath(__file__))
 picsfolder = os.path.join('static', 'image')
 
+SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI")
+if SQLALCHEMY_DATABASE_URI and SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+    SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
+    
 app.config['UPLOAD_FOLDER']=picsfolder
-app.config["SQLALCHEMY_DATABASE_URI"]= "sqlite:///user.db"
-app.config["SQLALCHEMY_BINDS"]={
-    "post": "sqlite:///post.db"
-    }
+#app.config["SQLALCHEMY_DATABASE_URI"]= "sqlite:///" + os.path.join(Base_dir, "db.sqlite")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False
-app.config["SECRET_KEY"]='0acdf54aa627351b42f02679'
+app.config["SECRET_KEY"]=os.environ.get("SECRET_KEY")
 
 db= SQLAlchemy(app)
-
+migrate=Migrate(app,db)
 
 
 class User(db.Model, UserMixin):
+    __tablename__ = "user"
     id = db.Column(db.Integer(), primary_key=True)
     email = db.Column(db.String(255), unique=True)
     firstname = db.Column(db.String(100), nullable=False)
@@ -35,7 +37,7 @@ class User(db.Model, UserMixin):
         return f"user: {self.firstname}"
 
 class Post(db.Model, UserMixin):
-    __bind_Key__ = "post"
+    __tablename__ = "post"
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text(), nullable=False)
